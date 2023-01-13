@@ -1,11 +1,15 @@
+* {
+  box-sizing: border-box;
+}
 .container {
   width: 100%;
   height: 930px;
   background-color: #eef9bf;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+}
+.conteudo {
+  display: flex;
 }
 .titulo-jogo {
   height: 63px;
@@ -23,22 +27,30 @@
   letter-spacing: -0.004em;
 }
 .linha-de-cima {
-  display: flex;
   width: 100%;
+  height: 150px;
+  display: flex;
   justify-content: space-evenly;
 }
 .linha-de-baixo {
-  display: flex;
   width: 100%;
+  height: 150px;
+  margin-top: 47px;
+  display: flex;
   justify-content: space-evenly;
-  margin-bottom: 100px;
+}
+.cartas-none {
+  display: none;
 }
 .card {
-  width: 200px;
-  height: 250px;
+  width: 117px;
+  height: 146px;
   position: relative;
 }
-
+img {
+  width: 100px;
+  height: 100px;
+}
 .face {
   width: 100%;
   height: 100%;
@@ -53,23 +65,22 @@
   transition: all 0.5s;
   transform-style: preserve-3d;
 }
-
-.back-face {
+.girarcarta {
   transform: rotateY(180deg);
 }
-
-.card:hover .back-face {
+.frente {
+  backface-visibility: hidden;
+}
+.costas {
+  transform: rotateY(180deg);
+}
+.face img {
+  width: 100px;
+  height: 100px;
+}
+.girarcarta .costas {
   transform: rotateY(0deg);
 }
-
-.card:hover .front-face {
+.girarcarta .frente {
   transform: rotateY(-180deg);
-}
-.imagem-costas {
-  width: 100px;
-  height: 100px;
-}
-.imagem-frente {
-  width: 100px;
-  height: 100px;
 }
