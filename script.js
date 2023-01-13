@@ -38,10 +38,10 @@ function mostrarJogo() {
   }
   cartasjogo.sort(comparador);
   for (let i = 0; i < cartasjogo.length; i++) {
-    conteudo.innerHTML += `<div onclick="virarcarta(this)" class="card">
-    <div class="frente face"><img src="./imagens/back.png" /></div>
+    conteudo.innerHTML += `<div data-test="card" onclick="virarcarta(this)" class="card">
+    <div class="frente face"><img data-test="face-down-image" src="./imagens/back.png" /></div>
     <div class="costas face">
-      <img src="${cartasjogo[i]}" />
+      <img data-test="face-up-image" src="${cartasjogo[i]}" />
     </div>
 </div>`;
   }
