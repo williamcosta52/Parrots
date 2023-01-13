@@ -47,7 +47,10 @@ function mostrarJogo() {
   }
 }
 function virarcarta(carta) {
-  if (!conteudo.classList.contains("aguardar")) {
+  if (
+    !conteudo.classList.contains("aguardar") &&
+    !carta.classList.contains("girarcarta")
+  ) {
     carta.classList.add("girarcarta");
     if (primeiraCarta === "") {
       primeiraCarta = carta;
