@@ -1,5 +1,8 @@
 let quantidadeCartas;
 const conteudo = document.querySelector(".conteudo");
+let primeiraCarta = "";
+let segundaCarta = "";
+
 let cartasjogo = [];
 let cards = [
   "./imagens/bobrossparrot.gif",
@@ -44,8 +47,29 @@ function mostrarJogo() {
   }
 }
 function virarcarta(carta) {
-  carta.classList.add("girarcarta");
+  if (!conteudo.classList.contains("aguardar")) {
+    carta.classList.add("girarcarta");
+    if (primeiraCarta === "") {
+      primeiraCarta = carta;
+    } else if (segundaCarta === "") {
+      segundaCarta = carta;
+      conteudo.classList.add("aguardar");
+      setTimeout(cartasIguais, 1000);
+    }
+  }
 }
 function comparador() {
   return Math.random() - 0.5;
+}
+function cartasIguais() {
+  if (primeiraCarta.innerHTML === segundaCarta.innerHTML) {
+    primeiraCarta = "";
+    segundaCarta = "";
+  } else {
+    primeiraCarta.classList.remove("girarcarta");
+    segundaCarta.classList.remove("girarcarta");
+    primeiraCarta = "";
+    segundaCarta = "";
+  }
+  conteudo.classList.remove("aguardar");
 }
