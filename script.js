@@ -2,6 +2,7 @@ let quantidadeCartas;
 const conteudo = document.querySelector(".conteudo");
 let primeiraCarta = "";
 let segundaCarta = "";
+let contador = 0;
 
 let cartasjogo = [];
 let cards = [
@@ -51,6 +52,8 @@ function virarcarta(carta) {
     !conteudo.classList.contains("aguardar") &&
     !carta.classList.contains("girarcarta")
   ) {
+    contador++;
+    console.log(contador);
     carta.classList.add("girarcarta");
     if (primeiraCarta === "") {
       primeiraCarta = carta;
@@ -75,4 +78,17 @@ function cartasIguais() {
     segundaCarta = "";
   }
   conteudo.classList.remove("aguardar");
+  todasViradas();
+}
+function todasViradas() {
+  const verificarviradas = document.querySelectorAll(".girarcarta");
+
+  if (verificarviradas.length === quantidadeCartas) {
+    alert(`Você ganhou em ${contador} jogadas!`);
+    const jogarnovamente = prompt("Gostaria de jogar novamente? sim ou não");
+
+    if (jogarnovamente === "sim") {
+      window.location.reload();
+    }
+  }
 }
